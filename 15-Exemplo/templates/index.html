@@ -1,0 +1,26 @@
+{% extends 'estrutura.html' %}
+{% block corpo %}
+        <form method="POST" action="/busca">
+            <div>
+                <input name="titulo" id="titulo" class="busca" placeholder="pesquise algum título aqui"><br><br>
+                <button type="submit" class="btn-busca">Buscar</button>
+            </div>
+        </form>
+        
+            <div class="conteudo">
+                <section>
+                    <h1>Posts da página</h1>
+                    {% for p in postagem %}
+                    <article>
+                        <header>
+                            <input type="hidden" value="{{ p.id }}">
+                            <h4><a href="/edit/{{ p.id }}">{{ p.titulo }}</a></h4>
+                        </header>
+                        <p>{{ p.conteudo }}</p>
+                    {% endfor %}
+                    </article>
+                </section>
+            </div>
+
+        </div>
+{% endblock %}

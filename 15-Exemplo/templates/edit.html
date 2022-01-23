@@ -1,0 +1,25 @@
+{% extends 'estrutura.html' %}
+{% block corpo %}
+<div class="conteudo">
+    <form action="/edit/{{ postagem.id }}" method="POST">
+        <div class="adicionar">
+            <div>
+                <h2>Titulo da postagem: </h2>
+                <input type="text" name="titulo" id="titulo"  value="{{ postagem.titulo }}"><br><br>
+            </div>
+            <div>
+                <h2>Conteudo da postagem: </h2>
+                <input type="text" name="conteudo" id="conteudo" value="{{ postagem.conteudo }}" ><br><br>
+            </div>
+            <div>
+                <button type="submit" class="btn-editar">editar postagem</button>
+            </div>
+        </div>
+    </form>
+    <div>
+        <br>
+        <a href="/delete/{{ postagem.id }}" class="btn-deletar">deletar postagem</a>
+    </div>
+    <br>
+</div>
+{% endblock %}
